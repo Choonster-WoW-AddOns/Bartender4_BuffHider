@@ -1,0 +1,8 @@
+## Title: Bartender4 Buff Hider
+## Interface: 60000
+## Author: Choonster
+## Notes: Shows/hides a Bartender bar based on whether or not you have a particular buff active
+## Version: @project-version@
+## Dependencies: Bartender4
+
+core.lua

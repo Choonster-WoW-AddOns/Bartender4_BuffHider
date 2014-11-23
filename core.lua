@@ -40,6 +40,8 @@ local function UpdateShownStates()
 	end
 end
 
+ns.UpdateShownStates = UpdateShownStates
+
 -- Perform any pending shown state changes
 local function DoPendingStateChanges()
 	for barNumber, state in pairs(PendingShownStates) do

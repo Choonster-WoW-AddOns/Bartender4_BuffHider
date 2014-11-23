@@ -1,7 +1,7 @@
 ## Title: Bartender4 Buff Hider
 ## Interface: 60000
 ## Author: Choonster
-## Notes: Shows/hides a Bartender bar based on whether or not you have a particular buff active
+## Notes: Shows/hides Bartender bars based on whether or not you have particular buffs/debuffs active
 ## Version: @project-version@
 ## Dependencies: Bartender4
 ## SavedVariables: Bartender4_BuffHider_DB
@@ -15,4 +15,7 @@ Libs\AceGUI-3.0\AceGUI-3.0.xml
 Libs\AceConfig-3.0\AceConfig-3.0.xml
 #@end-no-lib-strip@
 
+AceGUIWidget-SpellEditBox.lua
+
 core.lua
+options.lua

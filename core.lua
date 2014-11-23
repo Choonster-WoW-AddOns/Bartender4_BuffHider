@@ -27,13 +27,16 @@ end
 -- Update the shown state of all bars
 local function UpdateShownStates()
 	for barNumber, options in pairs(DB.profile) do
-		local state = not not UnitAura("player", options.aura) -- Coerce state to a boolean
-		
-		if options.invert then
-			state = not state
+		local aura = options.aura
+		if aura and aura ~= "" then
+			local state = not not UnitAura("player", aura) -- Coerce state to a boolean
+			
+			if options.invert then
+				state = not state
+			end
+			
+			SetShown(barNumber, state)
 		end
-		
-		SetShown(barNumber, state)
 	end
 end
 
@@ -73,7 +76,7 @@ end
 function f:ADDON_LOADED(name)
 	if name == addon then
 		DB = LibStub("AceDB-3.0"):New("Bartender4_BuffHider_DB", dbDefaults)
-		ns.InitOptions()
+		ns.InitOptions(DB)
 	end
 end
 

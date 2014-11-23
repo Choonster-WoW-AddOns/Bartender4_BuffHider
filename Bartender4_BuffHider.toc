@@ -4,5 +4,15 @@
 ## Notes: Shows/hides a Bartender bar based on whether or not you have a particular buff active
 ## Version: @project-version@
 ## Dependencies: Bartender4
+## SavedVariables: Bartender4_BuffHider_DB
+
+#@no-lib-strip@ 
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Libs\AceDB-3.0\AceDB-3.0.xml
+Libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
+Libs\AceGUI-3.0\AceGUI-3.0.xml
+Libs\AceConfig-3.0\AceConfig-3.0.xml
+#@end-no-lib-strip@
 
 core.lua

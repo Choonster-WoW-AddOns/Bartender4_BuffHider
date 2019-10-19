@@ -1,5 +1,5 @@
 -- List globals here for Mikk's FindGlobals script
--- GLOBALS: pairs, InCombatLockdown, UnitAura, LibStub, Bartender4_BuffHider_DB
+-- GLOBALS: pairs, InCombatLockdown, AuraUtil, LibStub, Bartender4_BuffHider_DB
 
 local addon, ns = ...
 
@@ -29,7 +29,7 @@ local function UpdateShownStates()
 	for barNumber, options in pairs(DB.profile) do
 		local aura = options.aura
 		if aura and aura ~= "" then
-			local state = not not UnitAura("player", aura) -- Coerce state to a boolean
+			local state = not not AuraUtil.FindAuraByName(aura, "player") -- Coerce state to a boolean
 			
 			if options.invert then
 				state = not state

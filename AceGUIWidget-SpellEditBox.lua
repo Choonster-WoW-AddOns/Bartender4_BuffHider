@@ -4,27 +4,15 @@
 -- List globals here for Mikk's FindGlobals script
 -- GLOBALS: pairs, hooksecurefunc, CreateFrame, GetSpellTexture, UIParent
 
-local Type, Version = "SpellEditBox", 1
+local Type, Version = "SpellEditBox", 2
 local AceGUI = LibStub and LibStub("AceGUI-3.0", true)
 if not AceGUI or (AceGUI:GetWidgetVersion(Type) or 0) >= Version then return end
 
 local DEFAULT_ICON = "Interface\\Icons\\INV_Misc_QuestionMark"
 
 -----------------------
--------- Hooks --------
------------------------
-
-local function Frame_SetPoint(frame, ...)
-	frame.obj:FixStrata()
-end
-
------------------------
 ------- Scripts -------
 -----------------------
-local function Frame_OnShow(frame)
-	frame.obj:FixStrata()
-end
-
 local function EditBox_OnTextChanged(frame)
 	local spellEditBox = frame.spellEditBox
 	
@@ -55,7 +43,6 @@ local methods = {
 	
 	["OnRelease"] = function(self)
 		self.editbox.frame:Hide()
-		self.editbox:OnRelease()
 	end,
 	
 	["OnHeightSet"] = function(self, height)
@@ -65,12 +52,6 @@ local methods = {
 	
 	["OnWidthSet"] = function(self, width)
 		self.editbox:SetWidth(width - (self.icon:GetWidth() + 5))
-	end,
-	
-	["FixStrata"] = function(self)
-		local frame, editboxFrame = self.frame, self.editbox.frame
-		editboxFrame:SetFrameStrata(frame:GetFrameStrata())
-		editboxFrame:SetFrameLevel(frame:GetFrameLevel() + 1)
 	end,
 	
 	["SetDisabled"] = function(self, disabled)
@@ -126,11 +107,8 @@ local function Constructor()
 	frame:SetHeight(26)
 	frame:Hide()
 	
-	frame:SetScript("OnShow", Frame_OnShow)
-	hooksecurefunc(frame, "SetPoint", Frame_SetPoint)
-	
 	local editbox = AceGUI:Create("EditBox")
-	editbox:SetParent(frame)
+	editbox.frame:SetParent(frame)
 	
 	editbox.editbox:HookScript("OnTextChanged", EditBox_OnTextChanged)
 	editbox:SetCallback("OnEnterPressed", EditBox_OnEnterPressed)

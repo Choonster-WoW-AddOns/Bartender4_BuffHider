@@ -7,6 +7,17 @@ local addon, ns = ...
 -- Core --
 ----------
 
+--@alpha@--
+local function debugprint(message, ...)	
+	print(message:format(...))
+end
+--@end-alpha@--
+
+--[===[@non-alpha@
+local function debugprint()
+end
+--@end-non-alpha@]===]
+
 local DB
 local BarRegistry = Bartender4.Bar.barregistry
 
@@ -15,6 +26,9 @@ local PendingShownStates = {}
 -- Show or hide the specified bar
 local function SetShown(barNumber, state)
 	local bar = BarRegistry[barNumber]
+	
+	debugprint("SetShown bar %d: bar = %s, state = %s, in combat = %s", barNumber, bar and bar:GetName() or "", tostring(state), tostring(InCombatLockdown()))
+	
 	if not bar then return end
 	
 	if InCombatLockdown() then -- If we're in combat, save the shown state and show/hide the bar as required when we leave combat
@@ -31,6 +45,8 @@ local function UpdateShownStates()
 		if aura and aura ~= "" then
 			local state = not not AuraUtil.FindAuraByName(aura, "player") -- Coerce state to a boolean
 			
+			debugprint("Updating bar %d: Aura = %s, arua exists = %s, invert = %s", barNumber, aura, tostring(state), tostring(options.invert))
+			
 			if options.invert then
 				state = not state
 			end
@@ -44,6 +60,8 @@ ns.UpdateShownStates = UpdateShownStates
 
 -- Perform any pending shown state changes
 local function DoPendingStateChanges()
+	debugprint("DoPendingStateChanges!")
+	
 	for barNumber, state in pairs(PendingShownStates) do
 		SetShown(barNumber, state)
 		PendingShownStates[barNumber] = nil

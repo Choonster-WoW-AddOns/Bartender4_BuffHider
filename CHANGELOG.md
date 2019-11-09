@@ -4,6 +4,8 @@
 - Add debug messages
 - Add readme and changelog
 - Update library URLs in .pkgmeta
+- Add .travis.yml file and TOC properties for the BigWigs packager script
+	- https://www.wowinterface.com/forums/showthread.php?t=55801
 
 ## 1.02
 - No changes

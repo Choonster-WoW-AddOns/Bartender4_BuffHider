@@ -1,6 +1,12 @@
 ## Title: Bartender4 Buff Hider
 
+#@retail@
 ## Interface: 80205
+#@end-retail@
+#@non-retail@
+# ## Interface: 11302
+#@end-non-retail@
+
 ## Author: Choonster
 ## Notes: Shows/hides Bartender bars based on whether or not you have particular buffs/debuffs active
 ## Version: @project-version@

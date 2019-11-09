@@ -7,8 +7,8 @@ addons:
             - pandoc
  
 install:
-    - curl -s https://raw.githubusercontent.com/BigWigsMods/packager/master/release.sh > release.sh && chmod +x release.sh
+    - curl -s https://raw.githubusercontent.com/BigWigsMods/packager/master/release.sh > ./release.sh && chmod +x ./release.sh
 
 script:
-    - release.sh
-    - release.sh -g 1.13.2
+    - ./release.sh
+    - ./release.sh -g 1.13.2

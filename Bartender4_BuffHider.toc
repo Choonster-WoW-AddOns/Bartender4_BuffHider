@@ -13,6 +13,9 @@
 ## Dependencies: Bartender4
 ## SavedVariables: Bartender4_BuffHider_DB
 
+## X-Curse-Project-ID: 86927
+## X-WoWI-ID: 23319
+
 #@no-lib-strip@ 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml

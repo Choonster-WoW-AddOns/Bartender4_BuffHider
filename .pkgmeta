@@ -2,7 +2,10 @@ package-as: Bartender4_BuffHider
 
 tools-used:
     - findglobals
-	
+
+required-dependencies:
+	- bartender4
+
 externals:
     Libs/LibStub: https://repos.curseforge.com/wow/libstub/trunk
     Libs/CallbackHandler-1.0: https://repos.curseforge.com/wow/callbackhandler/trunk/CallbackHandler-1.0

@@ -1,6 +1,6 @@
 ## 1.03
 - Update to Battle for Azeroth/Classic
-- Fix SpellEditBox strata issues
+- Fix `SpellEditBox` strata issues
 - Add debug messages
 - Add readme and changelog
 - Update library URLs in .pkgmeta
